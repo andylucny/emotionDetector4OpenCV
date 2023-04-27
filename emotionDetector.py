@@ -22,7 +22,7 @@ def setTarget(gpu):
 setTarget(False)
 
 def detectEmotion(face):
-    # transform the image to suitable input of the Inception DNN
+    # transform the image to suitable input of the MobileNet DNN
     blob = cv.dnn.blobFromImage(face, 1.0, (224, 224), (123.68, 116.779, 103.939), True, False)
     # put the input to the network
     net2.setInput(blob)
