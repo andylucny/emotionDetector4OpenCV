@@ -49,7 +49,8 @@ def detectFaces(image):
             # compute the (x, y)-coordinates of the bounding box for the object
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             startX, startY, endX, endY = box.astype(np.int32)
-            rects.append((startX, startY, endX, endY, confidence))
+            if startX >= 0 and startY >= 0 and endX < w and endY < h and startX < endX and startY < endY:
+                rects.append((startX, startY, endX, endY, confidence))
 
     return rects
     
